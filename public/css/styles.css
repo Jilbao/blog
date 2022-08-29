@@ -33,3 +33,10 @@
 	font-size: 12px;
   color: #fff;
 }
+.compose-form {
+    display: flex;
+    flex-direction: column;
+}
+.btn {
+    margin-top: 1rem;
+}
