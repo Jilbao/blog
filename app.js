@@ -12,10 +12,19 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+//Posts Array
+let posts = [];
+
 //Home
 app.get("/", (req, res) => {
+  console.log(posts);
+  console.log(posts[0].title);
+  console.log(posts[0].content);
 
-  res.render("home", {homeStartingContent: homeStartingContent});
+  res.render("home", {
+    homeStartingContent: homeStartingContent,
+    posts: posts
+  });
 }),
 
 //About
@@ -35,14 +44,18 @@ app.get("/compose", (req, res) =>{
 });
 
 app.post("/compose", (req, res) => {
-
-  console.log(req.body.postTitle);
+  const post = {
+    title: req.body.postTitle,
+    content: req.body.postBody
+  };
+  posts.push(post);
+  res.redirect("/");
 });
 
 
 
 
-
+//Listen
 app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
