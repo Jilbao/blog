@@ -20,10 +20,16 @@ app.get("/", (req, res) => {
   res.render("home", {homeStartingContent: homeStartingContent});
 }),
 
+//About
+app.get("/about", (req, res)=>{
+  res.render("about", {aboutContent: aboutContent});
+});
 
 
-
-
+//Contact
+app.get("/contact", (req, res)=>{
+  res.render("contact", {contactContent: contactContent});
+});
 
 
 
